@@ -1,15 +1,6 @@
-import numpy as np
-import random
-import json
+from brain.main import *
 
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
-
-from nltk_utils import bag_of_words, tokenize, stem
-from model import NeuralNet
-
-with open('intents.json', 'r') as f:
+with open('./rom/intents.json', 'r') as f:
     intents = json.load(f)
 
 all_words = []
@@ -123,7 +114,7 @@ data = {
 "tags": tags
 }
 
-FILE = "data.pth"
+FILE = "./rom/data.pth"
 torch.save(data, FILE)
 
 print(f'training complete. file saved to {FILE}')
